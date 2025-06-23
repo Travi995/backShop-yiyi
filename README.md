@@ -1,98 +1,203 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# BackShop API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend desarrollado con NestJS y conectado a Supabase para el proyecto BackShop.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Tecnologías
 
-## Description
+- **NestJS** - Framework de Node.js para aplicaciones escalables
+- **TypeScript** - Lenguaje de programación tipado
+- **Supabase** - Base de datos PostgreSQL en la nube
+- **Swagger** - Documentación automática de la API
+- **class-validator** - Validación de DTOs
+- **class-transformer** - Transformación de objetos
+- **dotenv** - Gestión de variables de entorno
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 📋 Prerrequisitos
 
-## Project setup
+- Node.js (v18 o superior)
+- npm o yarn
+- Cuenta en Supabase
 
+## 🛠️ Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/Travi995/backShop-yiyi.git
+   cd backShop-yiyi
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Configurar variables de entorno**
+   Crear archivo `.env` en la raíz del proyecto:
+   ```env
+   SUPABASE_URL=https://cyvhkjwefqpenmvjkiqk.supabase.co
+   SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5dmhrandlZnFwZW5tdmpraXFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA2ODI0MzEsImV4cCI6MjA2NjI1ODQzMX0.pAvCXp7UYNlw-VoC-u96idHXkAreav60pb3gykS-IsE
+   PORT=3000
+   ```
+
+## 🏃‍♂️ Ejecución
+
+### Desarrollo
 ```bash
-$ npm install
+npm run start:dev
 ```
 
-## Compile and run the project
-
+### Producción
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run build
+npm run start:prod
 ```
 
-## Run tests
+## 📁 Estructura del Proyecto
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```
+src/
+├── common/
+│   └── supabase/
+│       └── supabase.service.ts    # Servicio de conexión a Supabase
+├── app.module.ts                  # Módulo principal
+└── main.ts                        # Punto de entrada de la aplicación
 ```
 
-## Deployment
+## 🔧 Configuración
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+### Prefijo de API
+Todas las rutas de la API tienen el prefijo: `api/v0`
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Validación Global
+- **whitelist**: true - Solo permite propiedades definidas en DTOs
+- **forbidNonWhitelisted**: true - Rechaza propiedades no permitidas
+- **transform**: true - Transforma automáticamente tipos de datos
 
-```bash
-$ npm install -g mau
-$ mau deploy
+## 📚 API y Documentación
+
+### Swagger UI
+La documentación interactiva de la API está disponible en:
+```
+http://localhost:3000/api
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Características de Swagger
+- **Documentación automática** de todos los endpoints
+- **Interfaz interactiva** para probar endpoints
+- **Esquemas de DTOs** generados automáticamente
+- **Ejemplos de requests y responses**
+- **Autenticación integrada** (cuando se implemente)
 
-## Resources
+### Configuración de Swagger
+```typescript
+const config = new DocumentBuilder()
+  .setTitle('BackShop API')
+  .setDescription('API para el proyecto BackShop con NestJS y Supabase')
+  .setVersion('1.0')
+  .addTag('backShop')
+  .build();
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### URLs de la API
+- **Base URL**: `http://localhost:3000/api/v0`
+- **Documentación**: `http://localhost:3000/api`
+- **Health Check**: `http://localhost:3000/api/v0/health` (cuando se implemente)
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Ejemplo de uso de la API
+```bash
+# Obtener documentación
+curl http://localhost:3000/api
 
-## Support
+# Endpoints de la API (cuando se implementen)
+curl http://localhost:3000/api/v0/users
+curl http://localhost:3000/api/v0/products
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 🗄️ Base de Datos
 
-## Stay in touch
+### Supabase
+- **URL**: https://cyvhkjwefqpenmvjkiqk.supabase.co
+- **Servicio**: `src/common/supabase/supabase.service.ts`
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Uso del Servicio
+```typescript
+import { SupabaseService } from './common/supabase/supabase.service';
 
-## License
+constructor(private readonly supabaseService: SupabaseService) {}
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+// Ejemplo de consulta
+const { data, error } = await this.supabaseService.getClient()
+  .from('tabla')
+  .select('*');
+```
+
+## 🔒 Variables de Entorno
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `SUPABASE_URL` | URL del proyecto Supabase | `https://xxx.supabase.co` |
+| `SUPABASE_KEY` | Clave pública de Supabase | `eyJhbGciOiJIUzI1NiIs...` |
+| `PORT` | Puerto del servidor | `3000` |
+
+## 🧪 Testing
+
+```bash
+# Tests unitarios
+npm run test
+
+# Tests e2e
+npm run test:e2e
+
+# Cobertura de tests
+npm run test:cov
+```
+
+## 📦 Scripts Disponibles
+
+```bash
+npm run start          # Iniciar en modo producción
+npm run start:dev      # Iniciar en modo desarrollo
+npm run start:debug    # Iniciar en modo debug
+npm run build          # Compilar el proyecto
+npm run test           # Ejecutar tests
+npm run test:watch     # Ejecutar tests en modo watch
+npm run test:cov       # Ejecutar tests con cobertura
+npm run test:e2e       # Ejecutar tests e2e
+```
+
+## 🔄 Control de Versiones
+
+El proyecto utiliza GitFlow:
+- `master` - Rama principal (producción)
+- `develop` - Rama de desarrollo
+- `feature/*` - Ramas de características
+- `release/*` - Ramas de lanzamiento
+- `hotfix/*` - Ramas de correcciones urgentes
+
+## 📝 Próximas Características
+
+- [ ] Autenticación con Supabase Auth
+- [ ] CRUD completo de entidades
+- [ ] Middleware de logging
+- [ ] Tests unitarios y e2e
+- [ ] Dockerización
+- [ ] CI/CD pipeline
+- [ ] Health check endpoint
+- [ ] Rate limiting
+- [ ] CORS configuration
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para detalles.
+
+## 👨‍💻 Autor
+
+**Travi995** - [GitHub](https://github.com/Travi995)
