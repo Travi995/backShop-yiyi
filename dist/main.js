@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-require("dotenv/config");
+const dotenv = require("dotenv");
+dotenv.config();
 const core_1 = require("@nestjs/core");
 const swagger_1 = require("@nestjs/swagger");
 const common_1 = require("@nestjs/common");
